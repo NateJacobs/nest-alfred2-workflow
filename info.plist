@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>ngtj.nest.control</string>
+	<key>connections</key>
+	<dict>
+		<key>06817431-110A-486F-89A4-CEF487F33955</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>947284D0-A4EE-4003-9274-A0D5173E4856</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>21F12BEB-8522-48C0-B76A-AC21AB5EAA4E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>AD8E5A59-2C05-4A44-A8B1-A0FC424D2893</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>F5A53E32-64B7-401F-BCA4-CB3D23D552F7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>06817431-110A-486F-89A4-CEF487F33955</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>FDBB8067-07C9-4A6B-8D30-1AF7F83983D7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>21F12BEB-8522-48C0-B76A-AC21AB5EAA4E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Nate Jacobs</string>
+	<key>description</key>
+	<string>Control and view information about your Nest thermostat</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Nest Thermostat Control</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Nest Password</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>AD8E5A59-2C05-4A44-A8B1-A0FC424D2893</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>require_once('workflows.php');
+$w = new Workflows();
+
+$w-&gt;set( 'username', '{query}', 'settings.plist' );
+
+echo "Nest username saved";</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>06817431-110A-486F-89A4-CEF487F33955</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>nestpassword</string>
+				<key>subtext</key>
+				<string>Enter your Nest password</string>
+				<key>text</key>
+				<string>Nest Password</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>FDBB8067-07C9-4A6B-8D30-1AF7F83983D7</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Nest Username</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>947284D0-A4EE-4003-9274-A0D5173E4856</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>nestusername</string>
+				<key>subtext</key>
+				<string>Enter your nest username</string>
+				<key>text</key>
+				<string>Nest Username</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>F5A53E32-64B7-401F-BCA4-CB3D23D552F7</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>36</integer>
+				<key>keyword</key>
+				<string>ntemp</string>
+				<key>runningsubtext</key>
+				<string>Getting Temperature</string>
+				<key>script</key>
+				<string>php -f nest.php</string>
+				<key>title</key>
+				<string>Room Temperature</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>E910B047-2DE2-4903-9985-58FD578E3BC4</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>require_once('workflows.php');
+$w = new Workflows();
+
+$query = {query};
+
+$w-&gt;set( 'password', base64_encode( '{query}' ), 'settings.plist' );
+
+echo "Nest password saved";</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>21F12BEB-8522-48C0-B76A-AC21AB5EAA4E</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Set your username with the keyword: nestusername {username}
+Set your password with the keyword: nestpassword {password}
+
+The workflow uses the Alfred workflow PHP class by David Ferguson.
+http://dferg.us/workflows-class/
+
+The workflow also uses the Nest API control PHP class by Guillaume Boudreau
+https://github.com/gboudreau/nest-api
+
+--Nate Jacobs
+natejacobs.com</string>
+	<key>uidata</key>
+	<dict>
+		<key>06817431-110A-486F-89A4-CEF487F33955</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>21F12BEB-8522-48C0-B76A-AC21AB5EAA4E</key>
+		<dict>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>947284D0-A4EE-4003-9274-A0D5173E4856</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>AD8E5A59-2C05-4A44-A8B1-A0FC424D2893</key>
+		<dict>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>E910B047-2DE2-4903-9985-58FD578E3BC4</key>
+		<dict>
+			<key>ypos</key>
+			<real>320</real>
+		</dict>
+		<key>F5A53E32-64B7-401F-BCA4-CB3D23D552F7</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>FDBB8067-07C9-4A6B-8D30-1AF7F83983D7</key>
+		<dict>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>natejacobs.com</string>
+</dict>
+</plist>
