@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Name: 		Alfred Nest API Control
+ * Name: 	Alfred Nest API Control
  * Description:	An Alfred 2 worflow to view current information and contol your Nest Learning Thermostat
- *				Thanks to David Ferguson for his Workflow class - http://dferg.us/workflows-class/
- *				Also thanks to Guillaume Boudreau for his Nest API class - https://github.com/gboudreau/nest-api
- * Author:		Nate Jacobs (https://github.com/NateJacobs)
- * Revised:		03/22/2013
- * Version:		1.0
+ *		Thanks to David Ferguson for his Workflow class - http://dferg.us/workflows-class/
+ *		Also thanks to Guillaume Boudreau for his Nest API class - https://github.com/gboudreau/nest-api
+ * Author:	Nate Jacobs (https://github.com/NateJacobs)
+ * Revised:	03/25/2013
+ * Version:	1.1
  */
 
 // Get the required files
@@ -15,7 +15,6 @@ require_once('workflows.php');
 require_once('nest.class.php');
 
 $w = new Workflows();
-$nest = new Nest();
 
 // Get the system TimeZone
 $tz = exec( 'systemsetup -gettimezone | cut -d " " -f 3 ' );
@@ -24,6 +23,8 @@ date_default_timezone_set( $tz );
 // Get Nest username and password.
 define( 'USERNAME', $w->get( 'username', 'settings.plist' ) );
 define( 'PASSWORD', base64_decode( $w->get( 'password', 'settings.plist' ) ) );
+
+$nest = new Nest();
 
 // Get the device information:
 $info = $nest->getDeviceInfo();
